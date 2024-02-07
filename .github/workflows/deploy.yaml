@@ -1,0 +1,26 @@
+name: "Aws-CDK-Deploy"
+
+on:
+   workflow_dispatch:
+   push:
+      branches: [main]
+      paths-ignore:
+         - ".github/**"
+        #  - "CODEOWNERS"
+   pull_request:
+      branches: [main]
+      paths-ignore:
+         - ".github/**"
+        #  - "CODEOWNERS"
+
+jobs:
+   build:
+      uses: shanmukha511/aws-cdk/.github/workflows/aws-cdk-deploy.yml@main
+      with:
+         #runner: 'sss'
+         #app-language: 'python'
+         python-version: '3.11'
+         node-version: '16'
+      secrets:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
