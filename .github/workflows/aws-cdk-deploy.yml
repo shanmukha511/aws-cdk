@@ -40,6 +40,7 @@ jobs:
         with:
           node-version: '${{ inputs.node-version }}'
           cache: "npm"
+          cache-dependency-path: '/home/runner/work/aws-cdk/aws-cdk/hello-cdk/package-lock.json'
      # - run: npm install  -g aws-cdk
 
       - name: Install Python dependencies and CDK
