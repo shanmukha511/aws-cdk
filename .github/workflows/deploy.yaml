@@ -13,17 +13,20 @@ on:
          - ".github/**"
         #  - "CODEOWNERS"
         
-permissions:
-  id-token: write
-  contents: read
+# permissions:
+#   id-token: write
+#   contents: read
+
 jobs:
    build:
       uses: shanmukha511/aws-cdk/.github/workflows/aws-cdk-deploy.yml@main
       with:
-         #runner: 'sss'
-         #app-language: 'python'
          python-version: '3.11'
          node-version: '20'
+         cache-dependency-path: '${PWD}/hello-cdk/package-lock.json'
+         python-dependency-path:  '${PWD}/hello-cdk/requirements.txt'
+         cdk-synth-command: cdk synth --app="python3 ${PWD}/hello-cdk/app.py"
+         cdk-deploy-command: cdk deploy --app="python3 ${PWD}/hello-cdk/app.py" --all --require-approval never
       secrets:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
