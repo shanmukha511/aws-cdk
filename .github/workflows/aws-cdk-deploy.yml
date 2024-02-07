@@ -13,6 +13,27 @@ on:
         type: string
         required: true
         default: "16"
+      cache-dependency-path:
+        description: 'Cache Dependency path'
+        type: string
+        required: true
+        default: ""
+      python-dependency-path:
+        description: 'Python requirements txt path'
+        type: string
+        required: true
+        default: ""
+      cdk-synth-command:
+        description: 'Command to execute aws-cdk synth'
+        type: string
+        required: true
+        default: ""
+      cdk-deploy-command:
+        description: 'Command to deploy aws-cdk '
+        type: string
+        required: true
+        default: "" 
+      
     secrets:
       aws-access-key-id:
         description: 'AWS Account Access Key'
@@ -43,13 +64,13 @@ jobs:
         with:
           node-version: '${{ inputs.node-version }}'
           cache: "npm"
-          cache-dependency-path: '${PWD}/hello-cdk/package-lock.json'
+          cache-dependency-path: '${{ inputs.cache-dependency-path }}'
           #cache-dependency-path: '/home/runner/work/aws-cdk/aws-cdk/hello-cdk/package-lock.json'
 
       - name: Install Python dependencies and CDK
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r ${PWD}/hello-cdk/requirements.txt
+          python -m pip install -r '${{ inputs.python-dependency-path }}'
          
           # install aws-cdk
           npm install -g aws-cdk
@@ -64,7 +85,7 @@ jobs:
           aws-region: "us-east-2"
 
       - name: Synth stack
-        run: cdk synth --app="python3 ${PWD}/hello-cdk/app.py"
+        run:  '${{ inputs.cdk-synth-command }}'
 
       - name: Deploy stack to AWS
-        run: cdk deploy --app="python3 ${PWD}/hello-cdk/app.py" --all --require-approval never
+        run:  '${{ inputs.cdk-deploy-command }}'
