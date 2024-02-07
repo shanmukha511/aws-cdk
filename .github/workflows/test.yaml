@@ -30,7 +30,7 @@ jobs:
       - name: Install AWS CDK
         run: |
            echo "******"
-           python -m pip install -r requirements.txt
+           python -m pip install -r ${PWD}/hello-cdk/requirements.txt
 
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
