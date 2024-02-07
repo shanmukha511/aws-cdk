@@ -27,6 +27,11 @@ jobs:
       - name: Install AWS CDK
         run: npm i -g aws-cdk
 
+      - name: Install AWS CDK
+        run: |
+           echo "******"
+           ${pwd}
+
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -35,7 +40,7 @@ jobs:
           aws-region: "us-east-2"
 
       - name: Synth stack
-        run: cdk synth
+        run: cdk synth --app="python3 ${PWD}/hello-cdk/app.py"
 
       - name: Deploy stack
         run: cdk deploy --all --require-approval never
