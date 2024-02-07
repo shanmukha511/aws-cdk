@@ -23,8 +23,8 @@ jobs:
       with:
          python-version: '3.11'
          node-version: '20'
-         cache-dependency-path: ${PWD}/hello-cdk/package-lock.json
-         python-dependency-path:  ${PWD}/hello-cdk/requirements.txt
+         cache-dependency-path: '/home/runner/work/aws-cdk/aws-cdk/hello-cdk/package-lock.json'
+         python-dependency-path: '/home/runner/work/aws-cdk/aws-cd/hello-cdk/requirements.txt'
          cdk-synth-command: cdk synth --app="python3 ${PWD}/hello-cdk/app.py"
          cdk-deploy-command: cdk deploy --app="python3 ${PWD}/hello-cdk/app.py" --all --require-approval never
       secrets:
