@@ -24,9 +24,6 @@ jobs:
           cache: "npm"
           cache-dependency-path: '/home/runner/work/aws-cdk/aws-cdk/hello-cdk/package-lock.json'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Install AWS CDK
         run: npm i -g aws-cdk
 
