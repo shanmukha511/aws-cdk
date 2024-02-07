@@ -12,7 +12,10 @@ on:
       paths-ignore:
          - ".github/**"
         #  - "CODEOWNERS"
-
+        
+permissions:
+  id-token: write
+  contents: read
 jobs:
    build:
       uses: shanmukha511/aws-cdk/.github/workflows/aws-cdk-deploy.yml@main
