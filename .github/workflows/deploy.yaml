@@ -20,7 +20,7 @@ jobs:
          #runner: 'sss'
          #app-language: 'python'
          python-version: '3.11'
-         node-version: '16'
+         node-version: '20'
       secrets:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
