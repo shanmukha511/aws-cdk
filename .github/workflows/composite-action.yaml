@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: shanmukha511/composite-action-poc/actions/setup-composite@main
+        #uses: shanmukha511/composite-action-poc/actions/setup-composite@main
+        uses: shanmukha511/composite-action-poc/setup-composite1@main
         with:
           helmfile-version: '0.161.0'
       # - name: Check out repository
