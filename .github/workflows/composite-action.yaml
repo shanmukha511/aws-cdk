@@ -8,19 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      # - uses: actions/checkout@v4
-      # - id: foo
-      #   uses: shanmukha511/composite-action-poc/setup-composite@v1
-      #   with:
-      #     helmfile-version: '0.161.0'
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - id: foo
+        uses: shanmukha511/composite-action-poc/setup-composite@v1
         with:
-          repository: shanmukha511/composite-action-poc
-          ref: v1
-          #token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          path: ./.github/actions/setup-composite
-        env:
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
-      - name: Run my action
-        uses: ./.github/actions/setup-composite
+          helmfile-version: '0.161.0'
+      # - name: Check out repository
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: shanmukha511/composite-action-poc
+      #     ref: v1
+      #     #token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      #     path: ./.github/actions/setup-composite
+      #   env:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }} 
+      # - name: Run my action
+      #   uses: ./.github/actions/setup-composite
