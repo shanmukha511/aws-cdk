@@ -2,16 +2,16 @@ name: "Aws-CDK-Deploy"
 
 on:
    workflow_dispatch:
-   push:
-      branches: [main]
-      paths-ignore:
-         - ".github/**"
-        #  - "CODEOWNERS"
-   pull_request:
-      branches: [main]
-      paths-ignore:
-         - ".github/**"
-        #  - "CODEOWNERS"
+   # push:
+   #    branches: [main]
+   #    paths-ignore:
+   #       - ".github/**"
+   #      #  - "CODEOWNERS"
+   # pull_request:
+   #    branches: [main]
+   #    paths-ignore:
+   #       - ".github/**"
+   #      #  - "CODEOWNERS"
         
 # permissions:
 #   id-token: write
