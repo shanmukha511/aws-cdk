@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-        uses: shanmukha511/composite-action-poc/actions@v1
+        uses: shanmukha511/composite-action-poc/setup-composite@v1
         with:
           helmfile-version: '0.161.0'
