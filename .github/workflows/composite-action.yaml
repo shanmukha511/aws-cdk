@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - id: foo
         uses: shanmukha511/composite-action-poc/actions/setup-composite@main
         with:
