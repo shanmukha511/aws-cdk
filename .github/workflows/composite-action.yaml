@@ -11,8 +11,6 @@ jobs:
       - uses: actions/checkout@v2
       - id: helmfile-composite-action
         uses: shanmukha511/composite-action-poc/setup-composite1@main
-        with:
-          helmfile-version: '0.161.0'
   Composite-Action2-Job:
     runs-on: ubuntu-latest
     name: Calling Composite-Action2
